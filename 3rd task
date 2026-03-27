@@ -1,0 +1,28 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+int main() {
+    int n;
+    cout << "Size: ";
+    cin >> n;
+    int arr[n];
+    srand(time(0));
+    for(int i = 0; i < n; i++) {
+        arr[i] = rand() % 50;
+        cout << arr[i] << " ";
+    }
+    int findVal, replaceVal;
+    cout << "\nWhat to find : ";
+    cin >> findVal;
+    cout << "What to replace it with: ";
+    cin >> replaceVal;
+    for(int i = 0; i < n; i++) {
+        if(arr[i] == findVal)
+            arr[i] = replaceVal;
+    }
+    cout << "New massive:\n";
+    for(int i = 0; i < n; i++)
+        cout << arr[i] << " ";
+    return 0;
+}

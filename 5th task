@@ -1,0 +1,29 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+int main() {
+    int n, choice;
+    cout << "Array size: ";
+    cin >> n;
+    int arr[n];
+    srand(time(0));
+    for(int i = 0; i < n; i++) {
+        arr[i] = rand() % 100;
+        cout << arr[i] << " ";
+    }
+    cout << "\n1 - increase, 2 - decrease: ";
+    cin >> choice;
+    bool sorted = true;
+    for(int i = 0; i < n - 1; i++) {
+        if(choice == 1 && arr[i] > arr[i + 1])
+            sorted = false;
+        if(choice == 2 && arr[i] < arr[i + 1])
+            sorted = false;
+    }
+    if(sorted)
+        cout << "Array matches condition";
+    else
+        cout << "The array doesnt match the condition.";
+    return 0;
+}
